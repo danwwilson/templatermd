@@ -2,7 +2,7 @@
 #'
 #' Format for converting from R Markdown to a PDF document.
 #'
-#' @inheritParams html_document
+#' @inheritParams pdf_document
 #'
 #' @param fig_crop \code{TRUE} to automatically apply the \code{pdfcrop} utility
 #'   (if available) to pdf figures
@@ -89,7 +89,7 @@ pdf_document <- function(toc = FALSE,
                          highlight = "default",
                          template = "default",
                          keep_tex = FALSE,
-                         latex_engine = "pdflatex",
+                         latex_engine = "xelatex",
                          includes = NULL,
                          md_extensions = NULL,
                          pandoc_args = NULL) {

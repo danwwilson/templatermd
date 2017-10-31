@@ -1,4 +1,7 @@
 \documentclass[$if(fontsize)$$fontsize$,$endif$$if(lang)$$lang$,$endif$$if(papersize)$$papersize$,$endif$$for(classoption)$$classoption$$sep$,$endfor$]{$documentclass$}
+\usepackage{titlesec}
+\titleformat*{\section}{\sffamily\LARGE\bfseries}
+
 $if(fontfamily)$
 \usepackage{$fontfamily$}
 $else$
@@ -155,7 +158,7 @@ $if(logo)$
 $endif$
 \setlength{\droptitle}{-2em}
 $if(title)$
-  \title{$title$}
+  \sffamily\title{$title$}
   \pretitle{\vspace{\droptitle}\huge}
   \posttitle{\par}
 $else$
@@ -186,6 +189,10 @@ $endif$
 $for(header-includes)$
 $header-includes$
 $endfor$
+
+$if(section)$
+\textsf{$section$}
+$endif$
 
 
 \begin{document}

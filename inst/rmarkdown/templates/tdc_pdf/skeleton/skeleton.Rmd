@@ -2,30 +2,35 @@
 title: "This is a my document"
 author: 'Prepared by: Dan Wilson'
 date: '`r paste("Date:",Sys.Date())`'
+header-includes:
+- \usepackage{titling}
+- \pretitle{\begin{center}\LARGE\includegraphics[width=18cm]{logo.png}\\[\bigskipamount]}
+- \posttitle{\end{center}}
 output:
   pdf_document:
-  highlight: tango
-keep_tex: yes
-latex_engine: xelatex
-mainfont: Roboto Light
+    latex_engine: xelatex
+    highlight: tango
+    keep_tex: yes
+mainfont: Times New Roman
+sansfont: Arial
 fontsize: 12pt
 documentclass: report
 ---
   
-  # My first heading
-  This is an R Markdown document. Markdown is a simple formatting syntax for authoring HTML, PDF, and MS Word documents. For more details on using R Markdown see <http://rmarkdown.rstudio.com>.
+# My first heading
+This is an R Markdown document. Markdown is a simple formatting syntax for authoring HTML, PDF, and MS Word documents. For more details on using R Markdown see <http://rmarkdown.rstudio.com>.
 
-# My second heading    
+## My second heading    
 When you click the **Knit** button a document will be generated that includes both content as well as the output of any embedded R code chunks within the document. You can embed an R code chunk like this:
   
-  ## This is a level 2 heading    
-  ```{r}
+## This is a level 2 heading    
+```{r}
 summary(cars)
 ```
 
 You can also embed plots, for example:
   
-  ```{r, echo=FALSE}
+```{r, echo=FALSE}
 plot(cars)
 ```
 
