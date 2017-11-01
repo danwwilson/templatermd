@@ -2,7 +2,7 @@
 #'
 #' Format for converting from R Markdown to a PDF document.
 #'
-#' @inheritParams pdf_document
+#' @inheritParams rmarkdown::pdf_document
 #'
 #' @param fig_crop \code{TRUE} to automatically apply the \code{pdfcrop} utility
 #'   (if available) to pdf figures
@@ -78,7 +78,7 @@
 #' }
 #'
 #' @export
-pdf_document <- function(toc = FALSE,
+tdc_pdf <- function(toc = FALSE,
                          toc_depth = 2,
                          number_sections = FALSE,
                          fig_width = 6.5,
@@ -98,14 +98,20 @@ pdf_document <- function(toc = FALSE,
   args <- c()
 
   # table of contents
-  args <- c(args, pandoc_toc_args(toc, toc_depth))
+  args <- c(args, rmarkdown::pandoc_toc_args(toc, toc_depth))
 
   # template path and assets
   if (identical(template, "default"))
     args <- c(args, "--template",
-              pandoc_path_arg(rmarkdown_system_file("rmarkdown/templates/pareto_pdf/pareto_pdf.tex")))
+              rmarkdown::pandoc_path_arg(
+                system.file(
+                "rmarkdown/templates/tdc_pdf/resources/tdc_pdf.tex",
+                  package = "templatermd"
+                )
+              )
+    )
   else if (!is.null(template))
-    args <- c(args, "--template", pandoc_path_arg(template))
+    args <- c(args, "--template", rmarkdown::pandoc_path_arg(template))
 
   # numbered sections
   if (number_sections)
@@ -114,14 +120,14 @@ pdf_document <- function(toc = FALSE,
   # highlighting
   if (!is.null(highlight))
     highlight <- match.arg(highlight, highlighters())
-  args <- c(args, pandoc_highlight_args(highlight))
+  args <- c(args, rmarkdown::pandoc_highlight_args(highlight))
 
   # latex engine
   latex_engine = match.arg(latex_engine, c("pdflatex", "lualatex", "xelatex"))
-  args <- c(args, pandoc_latex_engine_args(latex_engine))
+  args <- c(args, rmarkdown::pandoc_latex_engine_args(latex_engine))
 
   # content includes
-  args <- c(args, includes_to_pandoc_args(includes))
+  args <- c(args, rmarkdown::includes_to_pandoc_args(includes))
 
   # args args
   args <- c(args, pandoc_args)
@@ -133,10 +139,10 @@ pdf_document <- function(toc = FALSE,
     pre_processor <- NULL
 
   # return format
-  output_format(
-    knitr = knitr_options_pdf(fig_width, fig_height, fig_crop, dev),
-    pandoc = pandoc_options(to = "latex",
-                            from = from_rmarkdown(fig_caption, md_extensions),
+  rmarkdown::output_format(
+    knitr = rmarkdown::knitr_options_pdf(fig_width, fig_height, fig_crop, dev),
+    pandoc = rmarkdown::pandoc_options(to = "latex",
+                            from = rmarkdown::from_rmarkdown(fig_caption, md_extensions),
                             args = args,
                             keep_tex = keep_tex),
     clean_supporting = !keep_tex,

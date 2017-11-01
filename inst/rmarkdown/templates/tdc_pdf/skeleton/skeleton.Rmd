@@ -1,18 +1,15 @@
 ---
-title: "This is a my document"
+title: "Document title"
 author: 'Prepared by: Dan Wilson'
 date: '`r paste("Date:",Sys.Date())`'
-header-includes:
-- \usepackage{titling}
-- \pretitle{\begin{center}\LARGE\includegraphics[width=18cm]{logo.png}\\[\bigskipamount]}
-- \posttitle{\end{center}}
 output:
-  pdf_document:
+  templatermd::tdc_pdf:
     latex_engine: xelatex
     highlight: tango
     keep_tex: yes
 mainfont: Times New Roman
-sansfont: Arial
+sansfont: Roboto Bold
+monofont: Hack
 fontsize: 12pt
 documentclass: report
 ---

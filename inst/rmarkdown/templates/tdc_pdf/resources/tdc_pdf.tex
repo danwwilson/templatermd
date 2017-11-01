@@ -1,6 +1,5 @@
 \documentclass[$if(fontsize)$$fontsize$,$endif$$if(lang)$$lang$,$endif$$if(papersize)$$papersize$,$endif$$for(classoption)$$classoption$$sep$,$endfor$]{$documentclass$}
-\usepackage{titlesec}
-\titleformat*{\section}{\sffamily\LARGE\bfseries}
+\usepackage{xcolor}
 
 $if(fontfamily)$
 \usepackage{$fontfamily$}
@@ -139,6 +138,34 @@ $endif$
 \let\rmarkdownfootnote\footnote%
 \def\footnote{\protect\rmarkdownfootnote}
 
+\definecolor{tdc_blue}{HTML}{0F4DBC}
+
+%%% Define specific fonts for use in the document
+\newfontfamily\titlefont{Roboto}[SizeFeatures={Size=36}]
+\newfontfamily\authorfont{Roboto Light}[SizeFeatures={Size=22}]
+\newfontfamily\headingfont[SizeFeatures={Size=44}]{$sansfont$}
+
+%%% Define fonts for headings
+\usepackage{titlesec}
+\titleformat{\chapter}[display]
+  {\normalfont\Huge\sffamily\color{tdc_blue}}
+  {\chaptertitlename\ \thechapter}{0em}{}
+\titleformat{\section}
+  {\normalfont\sffamily\huge\color{tdc_blue}}
+  {\thesection}{0pt}{}
+\titleformat{\subsection}
+  {\normalfont\sffamily\LARGE\color{tdc_blue}}
+  {\thesubsection}{2pt}{}
+\titleformat{\subsubsection}
+  {\normalfont\sffamily\Large\color{tdc_blue}}
+  {\thesubsubsection}{2pt}{}
+\titleformat{\paragraph}
+  {\normalfont\sffamily\large\color{tdc_blue}}
+  {\the paragraph}{2pt}{}
+\titleformat{\subparagraph}
+  {\normalfont\sffamily\large}
+  {\thesubparagraph}{2pt}{}
+
 %%% Change title format to be more compact
 \usepackage{titling}
 
@@ -149,16 +176,10 @@ $endif$
     }
 }
 
-\newcommand{\logo}{
-  \includegraphics{logo.png}
-}
 
-$if(logo)$
-\logo{$logo$}
-$endif$
 \setlength{\droptitle}{-2em}
 $if(title)$
-  \sffamily\title{$title$}
+  \title{\titlefont $title$}
   \pretitle{\vspace{\droptitle}\huge}
   \posttitle{\par}
 $else$
@@ -167,10 +188,10 @@ $else$
   \posttitle{}
 $endif$
 $if(subtitle)$
-\subtitle{$subtitle$}
+\subtitle{\authorfont $subtitle$}
 $endif$
 $if(author)$
-  \author{$for(author)$$author$$sep$ \\ $endfor$}
+  \author{\authorfont $for(author)$$author$$sep$ \\ $endfor$}
   \preauthor{\centering\large\emph}
   \postauthor{\par}
 $else$
@@ -180,11 +201,19 @@ $endif$
 $if(date)$
   \predate{\centering\large\emph}
   \postdate{\par}
-  \date{$date$}
+  \date{\authorfont $date$}
 $else$
   \date{}
   \predate{}\postdate{}
 $endif$
+
+
+\pretitle{
+  \begin{center}
+  \LARGE
+  \includegraphics[width=18cm]{logo.png}\\[\bigskipamount]
+}
+\posttitle{\end{center}}
 
 $for(header-includes)$
 $header-includes$
