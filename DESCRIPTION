@@ -1,12 +1,14 @@
 Package: templatermd
 Type: Package
 Title: R Markdown Formats For The Data Collective
+Date: 2017-11-01
 Version: 0.1.0
 Authors@R: c(
-  person("Dan", "Wilson", role = c("aut", "cre"), email = "dan@thedatacollective.com.au")
+  person("Dan", "Wilson", role = c("aut", "cre"), email = "dan@thedatacollective.com.au"),
+  person(family = "The Data Collective Consulting Pty Ltd", role = "cph"),
+  person(family = "RStudio, Inc.", role = "cph"), comment = "rmarkdown package"),
   )
-Maintainer: The package maintainer <yourself@somewhere.net>
 Description: A set of branded R Markdown templates for usage by The Data Collective.
-License: TBD
+License: GPL-3
 Encoding: UTF-8
 LazyData: true
