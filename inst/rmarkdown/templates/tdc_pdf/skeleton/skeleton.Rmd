@@ -8,7 +8,7 @@ output:
     highlight: tango
     keep_tex: yes
 mainfont: Roboto Slab
-sansfont: Roboto 
+sansfont: Roboto Black
 monofont: Roboto Mono
 fontsize: 12pt
 documentclass: article

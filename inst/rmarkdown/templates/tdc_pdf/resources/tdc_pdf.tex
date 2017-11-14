@@ -53,6 +53,12 @@ $if(geometry)$
 \usepackage[includeheadfoot,$for(geometry)$$geometry$$sep$,$endfor$]{geometry}
 $endif$
 
+%%% Define specific fonts for use in the document
+\newfontfamily\titlefont{Roboto}[SizeFeatures={Size=36}]
+\newfontfamily\authorfont{Roboto Light}[SizeFeatures={Size=22}]
+\newfontfamily\headingfont[SizeFeatures={Size=44}]{$sansfont$}
+\newfontfamily\footerfont{Roboto Light}[SizeFeatures={Size=11}]
+
 \usepackage{fancyhdr}
 
 \setlength{\headheight}{40pt}
@@ -60,6 +66,8 @@ $endif$
 
 \lhead{}
 \rhead{\includegraphics[width=3cm]{logo.png}}
+\lfoot{\textcolor{black!40}{\footerfont\small{The Data Collective Consulting Pty Ltd
+\newline ABN: 47 621 388 690}}}
 
 \renewcommand{\headrulewidth}{0pt}
 $if(lang)$
@@ -149,12 +157,7 @@ $endif$
 \let\rmarkdownfootnote\footnote%
 \def\footnote{\protect\rmarkdownfootnote}
 
-\definecolor{tdc_blue}{HTML}{0F4DBC}
-
-%%% Define specific fonts for use in the document
-\newfontfamily\titlefont{Roboto}[SizeFeatures={Size=36}]
-\newfontfamily\authorfont{Roboto Light}[SizeFeatures={Size=22}]
-\newfontfamily\headingfont[SizeFeatures={Size=44}]{$sansfont$}
+\definecolor{tdc_blue}{HTML}{0055D4}
 
 %%% Define fonts for headings
 \usepackage{titlesec}
