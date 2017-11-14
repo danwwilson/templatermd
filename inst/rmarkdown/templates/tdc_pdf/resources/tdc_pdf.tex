@@ -1,6 +1,7 @@
 \documentclass[$if(fontsize)$$fontsize$,$endif$$if(lang)$$lang$,$endif$$if(papersize)$$papersize$,$endif$$for(classoption)$$classoption$$sep$,$endfor$]{$documentclass$}
 \usepackage{xcolor}
 
+
 $if(fontfamily)$
 \usepackage{$fontfamily$}
 $else$
@@ -49,8 +50,18 @@ $endif$
 \UseMicrotypeSet[protrusion]{basicmath} % disable protrusion for tt fonts
 }{}
 $if(geometry)$
-\usepackage[$for(geometry)$$geometry$$sep$,$endfor$]{geometry}
+\usepackage[includeheadfoot,$for(geometry)$$geometry$$sep$,$endfor$]{geometry}
 $endif$
+
+\usepackage{fancyhdr}
+
+\setlength{\headheight}{40pt}
+\pagestyle{fancy}
+
+\lhead{}
+\rhead{\includegraphics[width=3cm]{logo.png}}
+
+\renewcommand{\headrulewidth}{0pt}
 $if(lang)$
 \ifxetex
   \usepackage{polyglossia}
@@ -227,6 +238,7 @@ $endif$
 \begin{document}
 
 \maketitle
+\pagebreak
 
 $if(abstract)$
 \begin{abstract}
