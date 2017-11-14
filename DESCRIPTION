@@ -6,7 +6,7 @@ Version: 0.1.0
 Authors@R: c(
   person("Dan", "Wilson", role = c("aut", "cre"), email = "dan@thedatacollective.com.au"),
   person(family = "The Data Collective Consulting Pty Ltd", role = "cph"),
-  person(family = "RStudio, Inc.", role = "cph"), comment = "rmarkdown package"),
+  person(family = "RStudio, Inc.", role = "cph", comment = "rmarkdown package")
   )
 Description: A set of branded R Markdown templates for usage by The Data Collective.
 License: GPL-3
