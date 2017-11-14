@@ -7,11 +7,11 @@ output:
     latex_engine: xelatex
     highlight: tango
     keep_tex: yes
-mainfont: Times New Roman
-sansfont: Roboto Bold
-monofont: Hack
+mainfont: Roboto Slab
+sansfont: Roboto 
+monofont: Roboto Mono
 fontsize: 12pt
-documentclass: report
+documentclass: article
 ---
   
 # My first heading
