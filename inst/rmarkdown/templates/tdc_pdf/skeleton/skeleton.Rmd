@@ -38,3 +38,17 @@ This is a list:
 * one
 * two
 * three
+
+```{r}
+library(magrittr)
+library(huxtable)
+ht <- hux(
+        Employee = c('John Smith', 'Jane Doe', 'David Hugh-Jones'),
+        Salary = c(50000, 50000, 40000),
+        add_colnames = TRUE
+      )
+
+ht                                        %>%
+      set_bold(1, everywhere, TRUE)       %>%
+      set_bottom_border(1, everywhere, 1)
+```

@@ -1,6 +1,13 @@
 \documentclass[$if(fontsize)$$fontsize$,$endif$$if(lang)$$lang$,$endif$$if(papersize)$$papersize$,$endif$$for(classoption)$$classoption$$sep$,$endfor$]{$documentclass$}
-\usepackage{xcolor}
-
+%\usepackage{xcolor}
+\usepackage{array}
+\usepackage{graphicx}
+\usepackage{caption}
+\usepackage{siunitx}
+\usepackage{multirow}
+\usepackage{hhline}
+\usepackage{calc}
+\usepackage{tabularx}
 
 $if(fontfamily)$
 \usepackage{$fontfamily$}
@@ -153,6 +160,10 @@ $if(verbatim-in-note)$
 \VerbatimFootnotes % allows verbatim text in footnotes
 $endif$
 
+$for(header-includes)$
+$header-includes$
+$endfor$
+
 %%% Use protect on footnotes to avoid problems with footnotes in titles
 \let\rmarkdownfootnote\footnote%
 \def\footnote{\protect\rmarkdownfootnote}
@@ -228,10 +239,6 @@ $endif$
   \includegraphics[width=18cm]{logo.png}\\[\bigskipamount]
 }
 \posttitle{\end{center}}
-
-$for(header-includes)$
-$header-includes$
-$endfor$
 
 $if(section)$
 \textsf{$section$}
