@@ -13,7 +13,9 @@ monofont: Roboto Mono
 fontsize: 12pt
 documentclass: article
 ---
-  
+```{r}
+knitr::opts_chunk$set(warning = FALSE, message = FALSE, dev = "cairo_pdf")
+```  
 # My first heading
 This is an R Markdown document. Markdown is a simple formatting syntax for authoring HTML, PDF, and MS Word documents. For more details on using R Markdown see <http://rmarkdown.rstudio.com>.
 
@@ -52,3 +54,15 @@ ht                                        %>%
       set_bold(1, everywhere, TRUE)       %>%
       set_bottom_border(1, everywhere, 1)
 ```
+
+```{r}
+library(typothemes)
+library(ggplot2)
+
+ggplot(mtcars, aes(mpg, wt)) +
+  geom_point() +
+  labs(x="Fuel efficiency (mpg)", y="Weight (tons)",
+       title="Seminal ggplot2 scatterplot example",
+       subtitle="A plot that is only useful for demonstration purposes",
+       caption="Brought to you by the letter 'g'") + 
+  theme_arial()

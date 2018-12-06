@@ -11,8 +11,8 @@ tdc_pdf(toc = FALSE, toc_depth = 2, number_sections = FALSE,
   fig_caption = FALSE, dev = "pdf", df_print = "default",
   highlight = "default", template = "default", keep_tex = FALSE,
   latex_engine = "xelatex", citation_package = c("none", "natbib",
-  "biblatex"), includes = NULL, md_extensions = NULL, pandoc_args = NULL,
-  extra_dependencies = NULL)
+  "biblatex"), includes = NULL, md_extensions = NULL,
+  pandoc_args = NULL, extra_dependencies = NULL)
 
 latex_document(...)
 
